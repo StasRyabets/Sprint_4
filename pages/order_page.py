@@ -1,58 +1,31 @@
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from locators import *
+from pages.base_page import BasePage
+from locators.order_page_locators import *
+from locators.base_page_locators import *
 from data import *
 
-class OrderPage:
-                  
-    def __init__(self, driver):
-        self.driver = driver
 
-    def fill_field_first_name(self, first_name):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(field_first_name)).send_keys(first_name)
+class OrderPage(BasePage):
 
-    def fill_field_second_name(self, second_name):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(field_second_name)).send_keys(second_name)
+    def fill_fields_on_first_order_screen(self, button_order, first_name, second_name, adress, metro_station, phone):
+        self.open('https://qa-scooter.praktikum-services.ru/')
+        self.click_on_element(BasePageLocators.button_accept_cookie)
+        self.click_on_element(button_order)
+        self.send_keys(OrderPageLocators.field_first_name, first_name)
+        self.send_keys(OrderPageLocators.field_second_name, second_name)
+        self.send_keys(OrderPageLocators.field_adress, adress)
+        self.click_on_element(OrderPageLocators.field_metro_station)
+        self.click_on_element(metro_station)
+        self.send_keys(OrderPageLocators.field_phone, phone)
+        self.click_on_element(OrderPageLocators.button_next)
 
-    def fill_field_adress(self, adress):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(field_adress)).send_keys(adress)
-
-    def fill_field_metro_station(self, metro_station):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(field_metro_station)).click()
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(metro_station)).click()
- 
-    def fill_field_phone(self, phone):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(field_phone)).send_keys(phone)
-
-    def click_on_button_next(self):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(button_next)).click()
-
-    def fill_field_date_of_delivery(self, date):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(field_date_of_delivery)).click()
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(date)).click()
-
-    def fill_field_rental_period(self, rental_period):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(field_rental_period)).click()
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(rental_period)).click()
-
-    def click_on_checkbox(self, checkbox):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(checkbox)).click()
-
-    def click_on_button_order_on_last_screen(self):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(button_order_on_last_screen)).click()
-
-    def click_on_button_yes_on_order_screen(self):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(button_yes_on_order_screen)).click()
-
-    def click_on_button_accept_cookie(self):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(button_accept_cookie)).click()
-
-    def click_on_logo_scooter(self):
-        WebDriverWait(self.driver, 2).until(expected_conditions.element_to_be_clickable(logo_scooter)).click()
-    
-
-
-        
-
-
+    def fill_fields_on_second_order_screen(self, date, rental_period):
+        self.click_on_element(OrderPageLocators.field_date_of_delivery)
+        self.click_on_element(date)
+        self.click_on_element(OrderPageLocators.field_rental_period)
+        self.click_on_element(rental_period)
+        self.click_on_element(OrderPageLocators.checkbox_black)
+        self.click_on_element(OrderPageLocators.button_order_on_last_screen)
+        self.click_on_element(OrderPageLocators.button_yes_on_order_screen)
 

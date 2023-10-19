@@ -3,8 +3,6 @@ from selenium.webdriver.common.by import By
 
 class HomePageLocators:
 
-    button_order_on_header = (
-        By.XPATH, '//div[contains(@class, "Header_Nav")]/button[text()="Заказать"]')
     button_order_on_middle = (
         By.XPATH, '//div[contains(@class, "Home_FinishButton")]/button[text()="Заказать"]')
 
@@ -41,3 +39,4 @@ class HomePageLocators:
         By.XPATH, '//div[contains(text(), "Можно ли отменить заказ?")]')
     question_area = (
         By.XPATH, '//div[contains(text(), "Я жизу за МКАДом, привезёте?")]')
+
