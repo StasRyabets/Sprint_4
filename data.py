@@ -1,0 +1,8 @@
+first_name_valid = 'Стас'
+first_name_valid_long = 'Станиславиускас'
+second_name_valid = 'Рябчиков'
+second_name_valid_long = 'Паниковскийвасвсехпродасткупитисновапродастноужедороже' 
+adress_valid = 'улица Пушкина, дом Колотушкина'
+adress_valid_short = 'дом 1'
+phone_valid_start_from_plus = '+79142424242'
+phone_valid = '89142424242'
