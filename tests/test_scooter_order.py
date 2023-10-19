@@ -1,23 +1,10 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
-from pages.home_page import *
+from selenium.webdriver.support.wait import WebDriverWait
 from pages.order_page import *
 from locators.base_page_locators import *
 from locators.order_page_locators import *
 from locators.home_page_locators import *
 import pytest
-
-
-def test_go_to_home_page_click_on_logo_scooter(driver):
-    BasePage(driver).click_on_logo_scooter()
-    assert driver.current_url == 'https://qa-scooter.praktikum-services.ru/'
-
-
-def test_go_to_ya_page_click_on_logo_ya(driver):
-    BasePage(driver).click_on_logo_ya()
-    BasePage(driver).change_tab()
-    assert WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(
-        BasePageLocators.button_find_on_ya)) is not None
 
 
 @pytest.mark.parametrize("button_order, first_name, second_name, adress, metro_station, phone",

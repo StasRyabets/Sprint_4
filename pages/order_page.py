@@ -1,5 +1,3 @@
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 from pages.base_page import BasePage
 from locators.order_page_locators import *
 from locators.base_page_locators import *

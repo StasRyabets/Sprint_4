@@ -1,6 +1,4 @@
-from selenium.webdriver.support import expected_conditions
 from pages.home_page import *
-from pages.order_page import *
 from locators.home_page_locators import *
 import pytest
 
